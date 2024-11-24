@@ -1,0 +1,65 @@
+{% extends "layout.html" %} {% block content %}
+
+<h1>
+  <span>Save</span> Contact
+  <img
+    class="imgaddcontact"
+    src="../../static/logo/tambahcontact.bmp"
+    alt="Add contact"
+  />
+</h1>
+{% if textAddContact %}
+<dir
+  x-data="{ visible: true }"
+  x-init="setTimeout(() => visible = false, 3500)"
+>
+  <p x-show="visible" class="addContact">{{ textAddContact }}</p>
+</dir>
+{% endif %}
+<div class="table">
+  <table>
+    <tr>
+      <th>id</th>
+      <th>Name</th>
+      <th>Hanphone</th>
+      <th>age</th>
+    </tr>
+    <!-- setiap data yg di ambil dari databases -->
+    {% for row in data_contact %}
+    <tr>
+      <td class="contact_1">
+        <button type="button" class="btn-contact" data-id="{{ row[0] }} ">
+          <!--unt mengirimkan data ke server tapi merefrehalam (pakai di btn) onclick="window.location.href='/contact/{{ row[0] }}'" -->
+          {{ row[0] }}
+        </button>
+      </td>
+      <td>{{ row[1] }}</td>
+      <td>{{ row[3] }}</td>
+      <td>{{ row[4] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <!-- form tambah contact start -->
+  <!-- Isinya dari JS -->
+  <div class="update-contact"></div>
+  <!-- form tambah contact end -->
+
+  <div class="blur_background" id="blur"></div>
+  <div class="cardDetail">
+    <div class="row">
+      <p class="close">X</p>
+      <h3>Detail</h3>
+      <!-- Data yg masuk di kelola di JS -->
+      <p class="name"></p>
+      <p class="phone"></p>
+      <p class="email"></p>
+      <div class="btn-contact">
+        <!-- data tombol di click di kelola di JS  -->
+        <button type="button" class="update">Update</button>
+        <button type="button" class="delete">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

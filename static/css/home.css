@@ -1,0 +1,234 @@
+/* sdebar start */
+/* Sidebar Start */
+aside {
+  width: 250px; /* Ukuran sidebar */
+  position: fixed; /* Posisi tetap agar melayang */
+  top: 0;
+  left: 0;
+  height: 100vh; /* Sepanjang layar */
+  background-color: rgba(2, 119, 189, 0.85); /* Transparansi */
+  backdrop-filter: blur(5px); /* Efek blur */
+  border-right: 1px solid rgba(255, 255, 255, 0.3); /* Border kanan */
+  overflow-y: auto; /* Scroll jika konten terlalu banyak */
+  padding: 20px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2); /* Bayangan untuk efek mengambang */
+  z-index: 12;
+  transition: transform 0.3s ease-in-out; /* Transisi geser */
+}
+aside p.close {
+  background-color: rgb(245, 10, 10);
+  position: absolute;
+  top: 0px;
+  right: 0;
+  color: white;
+  padding: 13px;
+  cursor: pointer;
+  margin-top: 0;
+}
+aside p.close :hover {
+  background-color: rgb(145, 142, 142);
+}
+/* Geser Sidebar */
+.-translate-x-full {
+  transform: translateX(-100%);
+}
+
+.translate-x-0 {
+  transform: translateX(0);
+}
+
+.sidebar-content {
+  color: #ffffff;
+}
+
+.sidebar-content .menu {
+  background-color: #0277bd;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.sidebar-content h2 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin: 20px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigasi */
+.row-navigasi {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.navigasi {
+  padding: 0;
+  margin: 0;
+}
+/* siderbar end */
+
+.icon-aside {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  z-index: 10;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease; /* Transisi untuk semua perubahan */
+}
+
+.icon-aside img {
+  width: 40px; /* Ukuran gambar */
+  height: auto;
+  border-radius: 50%; /* Membuat gambar menjadi lingkaran */
+  background-color: #e1f5fe; /* Warna latar belakang awal */
+  border: 3px solid #0277bd; /* Border kiri gambar */
+  transition: all 0.3s ease; /* Transisi untuk gambar */
+}
+
+.icon-aside:hover {
+  left: 15px; /* Geser sedikit ke kanan */
+  border-left: 3px solid #0277bd; /* Warna border kiri tetap sama */
+}
+
+.icon-aside img:hover {
+  transform: scale(1.2); /* Membesarkan gambar saat hover */
+  background-color: #0277bd; /* Ubah latar belakang gambar */
+  border-radius: 50%; /* Pastikan gambar tetap lingkaran */
+}
+
+.home {
+  width: 100vw;
+}
+.home .content {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../img/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  background-position: center;
+  position: relative;
+  mask-image: linear-gradient(rgba(253, 253, 250) 80%, rgba(255, 255, 255, 0));
+}
+.home .content .descripsi {
+  top: 150px;
+  margin-left: 250px;
+  height: auto;
+  width: 80%;
+  position: fixed;
+}
+.home .content .descripsi h1 {
+  padding: 2rem 0;
+  font-weight: bold;
+  font-size: 2.8rem;
+  text-shadow: 3px 2px 0px rgba(20, 20, 20, 05);
+  color: #ffffff;
+}
+
+/* made start */
+#made {
+  margin-top: 5rem;
+  padding: 3.5rem 0;
+}
+#made h2 {
+  text-align: center;
+  font-size: 2.1em;
+  color: #0277bd;
+}
+section.made {
+  display: flex;
+  margin: 3.5rem;
+  padding: 1rem;
+  justify-content: center;
+  margin-right: 0;
+}
+section.made h2 {
+  text-align: center;
+  font-size: 2.1em;
+  color: #ffffff;
+}
+.made .python {
+  width: 40%;
+  padding: 2rem;
+  background-color: #f2f2f2;
+}
+.made .python img {
+  width: 100%;
+}
+.made .flask {
+  width: 40%;
+  padding: 2rem;
+  background-color: #e3e3e3;
+}
+.made .flask img {
+  width: 50%;
+}
+/* made end*/
+/* Footer Start */
+footer {
+  position: relative;
+  background-color: #01579b; /* Warna biru laut */
+  padding: 20px;
+  color: #e0f7fa; /* Teks berwarna terang */
+  text-align: center;
+  font-family: Arial, sans-serif;
+  box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.3);
+}
+
+footer .desc {
+  margin-bottom: 40px; /* Ruang untuk ombak */
+}
+
+footer .name {
+  font-size: 1.8em;
+  color: #ffffff;
+  margin: 0;
+  font-weight: bold;
+  text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+footer .desc p {
+  margin: 5px 0;
+  font-size: 1em;
+  color: #e1f5fe;
+}
+
+/* Wave animation */
+.wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  height: 110px; /* Tinggi tetap agar ombak terlihat */
+  overflow: hidden;
+  line-height: 0;
+  transform: translateX(-50%); /* Pusatkan ombak di layar */
+}
+
+.waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300%; /* Memperbesar lebar SVG agar animasi halus */
+  height: 100px;
+}
+
+.waves path {
+  animation: waveAnimation 10s linear infinite;
+}
+
+@keyframes waveAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.33%); /* Menyambungkan gelombang */
+  }
+}
+/* Footer End */

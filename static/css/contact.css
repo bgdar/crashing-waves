@@ -1,0 +1,273 @@
+body {
+  background-color: #0277bd;
+  padding: 0 10px;
+  margin: 0;
+  position: relative;
+}
+h1 {
+  margin-top: 1.2em;
+  text-align: center;
+  font-size: 2.1em;
+  font-weight: bold;
+  color: #a0a0a0;
+}
+h1 span {
+  color: #0277bd;
+}
+h1 img {
+  margin-top: 3px;
+  width: 45px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+p.addContact {
+  /* p untuk pesan add ocntact */
+  text-align: center;
+  font-size: 16px;
+  color: rgb(15, 178, 206);
+  margin-bottom: 10px;
+}
+/* Table Wrapper */
+.table {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+  border-radius: 1.2em;
+}
+
+/* Main Table Styling */
+.table table {
+  width: 90%;
+  border-collapse: collapse;
+  border-radius: 0.8em;
+  overflow: hidden;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+  background-color: #0277bd;
+  color: #e0f7fa;
+  transition: transform 0.3s ease;
+}
+
+/* Table Row Styling */
+.table table tr {
+  font-size: 1.4rem;
+  background-color: #0277bd;
+  border-bottom: 2.6px solid #4fc3f7;
+  color: #efefef;
+  transition: background-color 0.3s ease;
+}
+.table table tr:hover {
+  background-color: #0288d1;
+}
+
+/* Table Cell Styling */
+.table table td {
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  background-color: rgba(129, 212, 250, 0.8);
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid #4fc3f7;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.table table td:hover {
+  background-color: #81d4fa;
+  transform: scale(1.05);
+}
+
+/* Contact Column Styling */
+.table table .contact_1 {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #01579b;
+}
+
+/* Button Styling in Table */
+.table table button {
+  border-radius: 5px;
+  padding: 0.6em 1.2em;
+  cursor: pointer;
+  background: linear-gradient(145deg, #004d73, #00bcd4);
+  color: white;
+  border: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.table table button:hover {
+  background: linear-gradient(145deg, #00bcd4, #004d73);
+  transform: scale(1.05);
+}
+.table table button:active {
+  transform: scale(0.95);
+}
+
+/* Blur Background Styling */
+.blur_background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px); /* Tambah efek blur */
+  z-index: 100;
+  display: none; /* Tersembunyi secara default */
+  transition: opacity 0.3s ease; /* Transisi efek */
+}
+.blur_background.show {
+  display: block; /* Tampilkan blur saat dibutuhkan */
+  opacity: 1;
+}
+
+.blur_background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semitransparan hitam */
+  backdrop-filter: blur(7px); /* Efek blur */
+  z-index: 100; /* Pastikan di atas konten lain */
+  display: none; /* Default tersembunyi */
+}
+/* form tambah data contact start */
+.update-contact {
+  display: block;
+  position: absolute;
+  right: 2.8rem;
+  top: 4.5rem;
+  width: 45%;
+  background: linear-gradient(
+    145deg,
+    #e0f7fa,
+    #ffffff
+  ); /* Gradasi biru keputihan */
+  margin-left: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.update-contact:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+.update-contact h3 {
+  text-align: center;
+  color: #0277bd;
+  font-size: 1.8rem; /* Ukuran font lebih kecil */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  margin-bottom: 15px;
+}
+.update-contact form {
+  max-width: 85%;
+  padding: 2rem;
+  color: #b3e5fc; /* Biru terang */
+}
+.update-contact input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  background-color: rgba(224, 247, 250, 0.9); /* Biru muda keputihan */
+  color: #0277bd;
+  border: none;
+  border-bottom: 2px solid #b3e5fc;
+  border-radius: 5px;
+  font-size: 1rem; /* Font lebih kecil */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.update-contact input:focus {
+  background-color: #ffffff;
+  border-bottom: 2px solid #81d4fa;
+  outline: none;
+}
+.update-contact button {
+  display: block;
+  margin: 0 auto; /* Center button */
+  background: linear-gradient(
+    145deg,
+    #81d4fa,
+    #0277bd
+  ); /* Biru gradasi lembut */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem; /* Font lebih kecil */
+  transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+.update-contact button:hover {
+  background: linear-gradient(145deg, #0277bd, #81d4fa);
+  transform: scale(1.05);
+}
+.update-contact button:active {
+  transform: scale(0.98);
+}
+
+/* form tambah data contact end */
+
+/* untuk detail contact start*/
+.cardDetail {
+  display: none;
+  border: 2px darkblue;
+  background-color: #ffffff;
+  position: absolute;
+  justify-content: center;
+  border: 1px solid;
+  border-radius: 16px;
+  width: 40%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan lembut */
+  z-index: 101; /* Pastikan card di atas konten lain */
+  height: 50vh;
+}
+.cardDetail .close {
+  background-color: rgb(245, 10, 10);
+  position: absolute;
+  top: 0px;
+  right: 0;
+  color: white;
+  cursor: pointer;
+  margin-top: 0;
+  border-top-right-radius: 50%;
+  width: 15px;
+  height: auto;
+  font-size: 8px;
+}
+.cardDetail h3 {
+  text-align: center;
+  font-size: 700;
+  color: #0277bd;
+}
+.cardDetail p {
+  padding: 10px;
+  font-size: 300;
+  font-family: "sans-serif";
+  border-bottom: 2px solid #81d4fa;
+}
+.cardDetail .btn-contact {
+  display: flex;
+
+  position: absolute;
+  bottom: 0;
+  justify-content: space-around;
+  padding-top: 1em;
+}
+.cardDetail .btn-contact .update {
+  border-radius: 11px;
+  background-color: green;
+  padding: 0.75em;
+}
+.cardDetail .btn-contact .delete {
+  border-radius: 11px;
+  background-color: rgb(228, 0, 0);
+  padding: 0.75em;
+}
+.cardDetail .btn-contact .update:hover,
+.cardDetail .btn-contact .delete:hover {
+  background-color: rgb(145, 142, 142);
+  border-radius: 17px;
+}
+/* untuk detail contact end*/

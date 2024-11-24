@@ -1,0 +1,102 @@
+{% extends "layout.html" %} {% block content %}
+<div id="container" x-data="{buka:false}">
+  <aside
+    :class="{ 'translate-x-0':buka, '-translate-x-full': !buka }"
+    class="sidebar"
+  >
+    <p class="close" @click="buka=!buka">X</p>
+    <div class="sidebar-content">
+      <h2>List Page</h2>
+      <div class="row-navigasi">
+        <div class="navigasi">
+          <p class="btn-navigasi"><a href="#made">Made</a></p>
+          <p class="btn-navigasi"><a href="#">Made</a></p>
+          <p class="btn-navigasi"><a href="#">Made</a></p>
+          <!-- btn logout -->
+          <button type="submit" @click="fetchServer()" class="btn">
+            logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="icon-aside" @click="buka=!buka">
+    <img src="../static/logo/arrow-right.png" alt="waves" />
+  </div>
+  <section class="home">
+    <div class="content">
+      <div class="descripsi">
+        <h1>Just relax with the sound of the waves</h1>
+      </div>
+    </div>
+  </section>
+</div>
+<div id="made">
+  <h2>Made</h2>
+  <section class="made">
+    <div class="python">
+      <img src="../static/logo/python.jpg" alt="python" />
+      <div class="desc">
+        <h3>Python</h3>
+        <p>
+          Python adalah bahasa pemrograman yang populer dan dapat digunakan
+          untuk berbagai macam keperluan. di sini saya menggunakan framework
+          untuk mengelola serversite dari web ini yaitu <span>Flask</span>
+        </p>
+      </div>
+    </div>
+    <div class="flask">
+      <img src="../static/logo/flask.webp" alt="flask" />
+      <div class="desc">
+        <p>
+          Flask adalah microframework Python yang didesain untuk membuat web
+          applikasi.
+        </p>
+      </div>
+      <img src="../static/logo/alpine.png" alt="flask" />
+      <div class="desc">
+        <h3>Alpine.js</h3>
+        <p>
+          Alpine adalah library JavaScript minimalis yang dirancang untuk
+          menambahkan interaktivitas sederhana pada aplikasi web tanpa
+          memerlukan framework yang lebih besar seperti Vue atau React.
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<footer>
+  <div class="desc">
+    <p class="name">&copy; Muhammad Nadhar</p>
+    <p>Ajarin doh puh saya mah masih pemula..</p>
+    <p>
+      Web ini saya buat dengan alasan untuk latihan sahaja menggunakan Flask
+    </p>
+  </div>
+  <div class="wave-container">
+    <svg
+      class="waves"
+      viewBox="0 0 2400 100"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+    >
+      <path
+        fill="#0288d1"
+        d="M0,40 C600,90 1200,-30 1800,40 C2400,90 3000,-30 3600,40 V100 H0 Z"
+        opacity="0.5"
+      ></path>
+      <path
+        fill="#0277bd"
+        d="M0,60 C600,110 1200,-50 1800,60 C2400,110 3000,-50 3600,60 V100 H0 Z"
+        opacity="0.3"
+      ></path>
+      <path
+        fill="#01579b"
+        d="M0,80 C600,130 1200,-70 1800,80 C2400,130 3000,-70 3600,80 V100 H0 Z"
+        opacity="0.2"
+      ></path>
+    </svg>
+  </div>
+</footer>
+
+{% endblock %}

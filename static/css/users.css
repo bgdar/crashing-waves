@@ -1,0 +1,219 @@
+/* Reset beberapa gaya default browser */
+
+h1,
+p,
+label,
+input,
+button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  margin: 9rem 0;
+}
+/* Desain untuk alert-error dan alert-success dengan posisi absolut */
+.alert-error,
+.alert-success {
+  position: absolute;
+  top: 10%; /* Posisi vertikal dari atas halaman */
+  left: 50%;
+  transform: translateX(
+    -50%
+  ); /* Menyelaraskan pesan ke tengah secara horizontal */
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  width: auto;
+  max-width: 90%; /* Membatasi lebar maksimum */
+  z-index: 1000; /* Agar pesan muncul di atas elemen lain */
+  transition: opacity 0.5s ease-in-out; /* Transisi saat pesan muncul atau menghilang */
+}
+
+/* Pesan error dengan warna merah */
+.alert-error {
+  background-color: rgba(
+    255,
+    0,
+    0,
+    0.1
+  ); /* Background transparan dengan warna merah */
+  color: #ff0000;
+  border: 1px solid #ff0000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+}
+
+/* Pesan sukses dengan warna hijau */
+.alert-success {
+  background-color: rgba(
+    57,
+    222,
+    24,
+    0.1
+  ); /* Background transparan dengan warna hijau */
+  color: rgb(57, 222, 24);
+  border: 1px solid rgb(57, 222, 24);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+}
+
+/* Efek untuk menghilangkan pesan setelah beberapa detik */
+.alert-error.hide,
+.alert-success.hide {
+  opacity: 0; /* Menyembunyikan pesan */
+  pointer-events: none; /* Menghilangkan interaksi dengan elemen */
+}
+
+/* Efek saat hover pada pesan */
+.alert-error:hover,
+.alert-success:hover {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Bayangan lebih kuat saat hover */
+  transform: translateX(-50%) translateY(-5px); /* Efek sedikit mengangkat pesan */
+}
+
+.start {
+  cursor: pointer;
+  z-index: 100;
+  padding: 1.1rem;
+  box-shadow: 1px 1px 2px rgba(42, 41, 41, 0.1);
+  background-color: #0277bd;
+  text-align: center;
+  font-weight: bold;
+  margin: 2rem auto 1rem;
+  border-radius: 15px;
+  width: 7.5rem;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s,
+    border-radius 0.3s;
+}
+
+.start:hover {
+  border-radius: 50px; /* Membuat tombol lebih bulat saat hover */
+  background-color: #2081b9;
+  transform: scale(1.05); /* Efek membesar */
+  box-shadow: 4px 4px 8px rgba(42, 41, 41, 0.2); /* Bayangan lebih kuat */
+}
+
+.start:active {
+  transform: scale(0.98); /* Efek saat tombol ditekan */
+  box-shadow: 0px 0px 4px rgba(42, 41, 41, 0.1); /* Mengurangi bayangan saat aktif */
+}
+
+.start:focus {
+  outline: none; /* Menghilangkan outline default */
+  box-shadow: 0px 0px 10px 3px rgba(32, 129, 185, 0.6); /* Bayangan biru terang saat fokus */
+}
+
+.start a {
+  color: #eaeaeaea;
+  text-decoration: none;
+}
+
+/* Gaya form login */
+.utama {
+  background-color: #e0f7fa; /* Abu-abu Sangat Terang */
+  border: 1px solid #dedede; /* Abu-abu Terang */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan ringan */
+  max-width: 400px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.singin-container {
+  margin-top: 150px;
+}
+.login label,
+#formsingin label {
+  display: block;
+  margin-bottom: 5px;
+  color: #969696; /* Abu-abu Gelap */
+}
+
+.login input,
+#formsingin input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #dedede; /* Abu-abu Terang */
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.login input::placeholder {
+  color: #555555; /* Abu-abu Menengah */
+}
+
+.login button.submit,
+#formsingin button.singgin {
+  background-color: #0277bd; /* Gold */
+  border: none;
+  padding: 10px 15px;
+  color: #ffffff; /* Putih */
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.login button.submit:hover,
+#formsingin button.singgin:hover {
+  background-color: #81d4fa;
+}
+/* text p  */
+.utama p {
+  margin: 10px;
+  text-align: center;
+  padding: 5px;
+  color: #555555;
+}
+.utama p .click {
+  border: 1px solid transparent;
+  background-color: #0277bd;
+  color: #fff;
+  padding: 5px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.formsingin {
+  justify-content: center;
+  align-items: center;
+  background-color: #e0f7fa; /* Abu-abu Sangat Terang */
+  border: 1px solid #dedede; /* Abu-abu Terang */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan ringan */
+  max-width: 400px;
+  margin: 20px auto;
+}
+.Back {
+  margin: 1rem 0;
+  background-color: #d0e2e4;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100%;
+}
+.Back a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.Back:hover {
+  background-color: #f4f4f4;
+  color: rgb(54, 54, 54);
+}
+/* svg start  */
+
+.svg-ombak {
+  width: 1300px; /* Lebar tetap */
+  height: 400px; /* Tinggi tetap */
+  padding: 0;
+  position: fixed; /* Tetap di bawah halaman */
+  bottom: 0; /* Selalu di bagian bawah */
+  left: 50%; /* Pusatkan secara horizontal */
+  transform: translateX(-50%); /* Pindahkan ke tengah */
+  z-index: -1;
+}

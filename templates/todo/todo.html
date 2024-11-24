@@ -1,0 +1,62 @@
+{% extends "layout.html" %} {% block content %}
+<!-- rencana
+ 1 .buat setiap todo berdasarkan nama dari user yg login sebagai containernya
+ 2 . di dalamanya baru tambahakan untuk setiap todo masing masing  
+ 3. data di -->
+<main>
+  <section class="todo-container" x-data="todoApp()">
+    <div class="pesan">
+      <p x-text="pesan"></p>
+    </div>
+    <div class="todo-header">
+      <h1>TO-DO App</h1>
+      <form @submit.prevent="addTodo">
+        <input
+          type="text"
+          x-model="newTodo"
+          placeholder="create your todo App"
+          id="input-create"
+        />
+        <button id="create" type="submit">Create</button>
+      </form>
+    </div>
+
+    <!-- Tempat untuk menampilkan setiap To-Do berdasarkan user yang login -->
+    <div id="todo-class">
+      {% for text in textContainer%}
+      <div class="card-todo">
+        <p class="user">user {{text[0]}}</p>
+        <div class="card-descripsi">
+          <p>data untuk textnya {{ text }}</p>
+          <div class="card-tombol">
+            <button @click="deleteTodoServer( {{ text[2] }}   ) " type="submit">
+              Delete
+            </button>
+            <p>
+              buka repo anda <span>{{ text[0]}} </span>
+              <a href="{{ url_for('todo_user', id=text[2]) }}">click</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endfor%}
+      <template x-for="(todo, index) in todos" :key="index">
+        <div>
+          <p class="text" x-text="todo"></p>
+          <button
+            class="btn-delete"
+            @click="deleteTodoBiasa(index)"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button type="button" class="btn-kiirm" @click="kirim()">
+            Simpan
+          </button>
+        </div>
+      </template>
+    </div>
+  </section>
+</main>
+
+{% endblock %}

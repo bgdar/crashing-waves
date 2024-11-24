@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>crashing waves</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/users.css')}}"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body>
+    <main x-data="{  user: {{ session}} }">
+      <!-- pesan  -->
+      {% with messages = get_flashed_messages(with_categories=true)%} {% for
+      category, message in messages %}
+      <div class="alert-{{ category }}">{{ message }}</div>
+      {% endfor %} {% endwith %}
+      <div class="start">
+        <a
+          x-text="(user =='null') ? 'you not Login' : `lets start ${user}`"
+          href="{{ url_for('home')}}"
+        >
+        </a>
+      </div>
+      <section
+        x-show="  ( user == 'null') ? true : false"
+        class="utama"
+        id="utama"
+      >
+        <input type="hidden" name="action" value="login" />
+        <form action="" method="POST" class="login">
+          <input
+            type="text"
+            value=""
+            id="name"
+            name="name"
+            placeholder="masukan username"
+          />
+
+          <input
+            type="password"
+            value=""
+            id="password"
+            name="password"
+            placeholder="masukan Password"
+          />
+          <button class="submit">submit</button>
+        </form>
+        <p>
+          lupa singin
+          <span class="click"
+            ><a href="{{ url_for('singin')}}">Clic di sini</a></span
+          >
+        </p>
+      </section>
+    </main>
+
+    <div class="svg-ombak">
+      <svg
+        viewBox="0 0 1200 400"
+        xmlns="http://www.w3.org/2000/svg"
+        style="background: linear-gradient(to bottom, #ffffff, #b3e5fc)"
+      >
+        <!-- Ombak pertama -->
+        <path
+          id="wave1"
+          fill="url(#wave-gradient)"
+          d="M0,200 C400,100 800,300 1200,200 C1600,100 2000,300 2400,200 L2400,400 L0,400 Z"
+        >
+          <animateTransform
+            attributeName="transform"
+            attributeType="XML"
+            type="translate"
+            from="0 0"
+            to="-1200 0"
+            dur="12s"
+            repeatCount="indefinite"
+          />
+        </path>
+
+        <!-- Ombak kedua (untuk efek kedalaman) -->
+        <path
+          id="wave2"
+          fill="url(#wave-gradient)"
+          d="M0,220 C400,120 800,320 1200,220 C1600,120 2000,320 2400,220 L2400,400 L0,400 Z"
+          opacity="0.6"
+        >
+          <animateTransform
+            attributeName="transform"
+            attributeType="XML"
+            type="translate"
+            from="0 0"
+            to="-1200 0"
+            dur="12s"
+            repeatCount="indefinite"
+            begin="-6s"
+          />
+        </path>
+
+        <!-- Ombak ketiga (untuk efek kedalaman) -->
+        <path
+          id="wave3"
+          fill="url(#wave-gradient)"
+          d="M0,240 C400,140 800,340 1200,240 C1600,140 2000,340 2400,240 L2400,400 L0,400 Z"
+          opacity="0.3"
+        >
+          <animateTransform
+            attributeName="transform"
+            attributeType="XML"
+            type="translate"
+            from="0 0"
+            to="-1200 0"
+            dur="12s"
+            repeatCount="indefinite"
+            begin="-3s"
+          />
+        </path>
+
+        <!-- Definisi gradasi warna untuk ombak -->
+        <defs>
+          <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color: #0077be; stop-opacity: 1" />
+            <stop offset="100%" style="stop-color: #ffffff; stop-opacity: 1" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+  </body>
+</html>

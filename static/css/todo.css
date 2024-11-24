@@ -1,0 +1,203 @@
+/*  nantik aja selesaikan server nya css = AI */
+/* Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Container utama */
+.todo-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Style untuk Pesan */
+.pesan {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: auto;
+  max-width: 300px;
+  top: 5.4rem;
+  right: 4rem;
+  position: fixed;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+/* Tampilkan Pesan */
+.pesan.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Pesan Sukses */
+.pesan p.success {
+  background-color: #e6f9e6;
+  color: #2e7d32;
+}
+
+/* Pesan Error */
+.pesan p.error {
+  background-color: #ffe6e6;
+  color: #d32f2f;
+}
+
+/* Header Todo */
+.todo-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.todo-header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #5c67f2;
+}
+
+.todo-header form {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  gap: 10px;
+}
+
+.todo-header input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.todo-header button {
+  background-color: #5c67f2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.todo-header button:hover {
+  background-color: #4a54c1;
+}
+
+/* Table untuk todo */
+#todo-class {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Default satu kolom */
+  gap: 15px; /* Jarak antar elemen */
+  margin-top: 20px;
+  width: 100%;
+  text-align: left;
+}
+
+#todo-class p {
+  margin: 0;
+}
+
+/* Card Todo */
+.card-todo {
+  display: flex;
+  flex-direction: column;
+  background-color: #eef2ff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #d3d9ff;
+}
+.card-todo p.user {
+  font-size: medium;
+  font-family: "Trebuchet MS", sans-serif;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.card-descripsi {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.card-tombol {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.card-tombol button,
+.btn-delete {
+  background-color: #ff6f6f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.card-tombol button:hover,
+.btn-delete:hover {
+  background-color: #e25555;
+}
+
+.card-tombol a {
+  color: #5c67f2;
+  text-decoration: none;
+}
+.card-tombol p span {
+  font-weight: 700;
+  font-family: "Segoe UI";
+  color: rgb(97, 94, 94);
+}
+
+.card-tombol a:hover {
+  text-decoration: underline;
+}
+.btn-kiirm {
+  background-color: #25e125;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+.btn-kiirm:hover {
+  background-color: #17b217;
+}
+/* Responsif */
+@media (max-width: 768px) {
+  #todo-class {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* Default satu kolom */
+    gap: 15px; /* Jarak antar elemen */
+
+    width: 100%;
+  }
+
+  .todo-header button {
+    width: 100%;
+  }
+
+  .card-todo {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,220 @@
+/* Global settings */
+main {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(
+    to bottom,
+    #067cc1,
+    #ff7043
+  ); /* Warna senja dari atas ke bawah */
+  height: 100vmax;
+}
+
+/* Tombol Kirim */
+.btn-kirim {
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  background: #ff7043;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-kirim:hover {
+  background: #e64a19;
+  transform: scale(1.05);
+}
+header {
+  top: 20px;
+  text-align: center;
+  padding: 1rem 0.5rem;
+  color: white;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  width: fit-content; /* Hanya sebesar konten di dalamnya */
+  max-width: 100%; /* Agar tetap responsif */
+}
+
+header h2 {
+  font-size: 1.5rem; /* Ukuran lebih kecil agar proporsional */
+  font-weight: bold;
+  margin: 0; /* Hilangkan margin ekstra */
+}
+
+.todo-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: linear-gradient(
+    to right,
+    #ff7043,
+    #0277bd
+  ); /* Gradien horizontal dari senja ke ombak laut */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%; /* Lebar seluruh section */
+  max-width: 600px; /* Batas maksimal lebar */
+}
+
+.todo-input .form-todo {
+  display: flex;
+  width: 100%; /* Mengisi seluruh ruang yang tersedia */
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* Jarak antara input dan tombol */
+}
+
+.todo-input .form-todo .input-todo {
+  flex: 1; /* Mengisi ruang yang tersedia */
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.todo-input .form-todo .input-todo:focus,
+.todo-list .container-todo .card-descripsi .edit-card input:focus {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.todo-input .form-todo .btn-add {
+  background: #2068be;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.todo-input .form-todo .btn-add:hover {
+  background: #196fd7;
+  transform: scale(1.05);
+}
+.todo-list h3 {
+  text-align: center;
+  color: #fff;
+}
+.todo-list h3 span {
+  font-weight: bold;
+}
+
+.todo-list .container-todo .card-descripsi {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(
+    to bottom,
+    #6cc3ff,
+    #0288d1
+  ); /* Warna ombak laut */
+  margin: 0.5rem auto;
+  text-align: end;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.6); /* Border lembut */
+  width: 80%; /* 80% dari layar */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style Checkbox */
+.todo-list .container-todo .card-descripsi #centang {
+  appearance: none; /* Menghilangkan default checkbox */
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Emoji Sebelum Dicentang */
+.todo-list .container-todo .card-descripsi #centang::before {
+  content: "😒"; /* Emoji default */
+  position: absolute;
+  top: 50%;
+  transition: 0.5s all;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  pointer-events: none;
+}
+
+/* Emoji Setelah Dicentang */
+.todo-list .container-todo .card-descripsi #centang:checked::before {
+  transition: 0.5s all;
+  content: "😁"; /* Emoji centang */
+
+  font-size: 2rem;
+}
+
+.todo-list .container-todo .card-descripsi p {
+  margin-left: 10px;
+}
+.todo-list .container-todo .card-descripsi p span {
+  font-family: "Lucida Sans", "Lucida Sans Unicode";
+  color: #eaeaea;
+  font-size: 1rem;
+}
+/* manipulasi centang dan oncentang */
+.centang {
+  text-decoration: line-through;
+  font-size: larger;
+  color: rgb(164, 29, 29);
+}
+.oncentang {
+  text-decoration: none;
+  color: black;
+}
+
+.todo-list .container-todo .card-descripsi .edit-card {
+  padding: 0.35rem;
+  gap: 10px;
+  display: flex;
+  width: 100%;
+  font-size: 1rem;
+}
+.todo-list .container-todo .card-descripsi .edit-card input {
+  font-size: 1rem;
+}
+
+.card-tombol button,
+.btn-update {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-tombol button:hover,
+.btn-update:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.input-edit {
+  width: calc(100% - 50px);
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.btn-img {
+  width: 20px;
+  height: auto;
+  margin: 2px;
+}

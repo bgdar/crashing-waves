@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/'~fileCss)}}"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #e0f7fa; /* Background biru muda */
+        box-sizing: border-box;
+        position: relative;
+        font-family: sans-serif;
+      }
+
+      nav {
+        background: linear-gradient(
+          135deg,
+          #0277bd,
+          #03a9f4
+        ); /* Gradasi ombak biru */
+        width: auto;
+        color: #fff;
+        padding: 10px 20px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan navbar */
+      }
+
+      nav .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+      }
+
+      nav .nav-content img {
+        height: 50px;
+        margin-left: 8px;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+
+      nav .nav-content img:hover {
+        transform: scale(1.1); /* Efek zoom saat di-hover */
+      }
+
+      nav .nav-content .nav-item {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav .nav-content .nav-item li {
+        margin: 0 1.5em;
+        font-size: 1em;
+        position: relative;
+      }
+
+      nav .nav-content .nav-item a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+        position: relative;
+        padding: 5px 0;
+      }
+
+      nav .nav-content .nav-item a::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background-color: #e1f5fe; /* Warna garis interaktif */
+        transition: width 0.3s;
+      }
+
+      nav .nav-content .nav-item a:hover {
+        color: #d9e6eb; /* Warna link saat hover lebih cerah */
+      }
+
+      nav .nav-content .nav-item a:hover::before {
+        width: 100%; /* Memperluas garis interaktif saat hover */
+      }
+
+      nav .nav-content .btn {
+        background-color: #b3e5fc;
+        border: none;
+        color: #0277bd;
+        padding: 8px 16px;
+        border-radius: 20px; /* Membuat tombol lebih bulat */
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s, transform 0.3s;
+      }
+
+      nav .nav-content .btn:hover {
+        background-color: #81d4fa;
+        color: #fff;
+        transform: scale(1.05); /* Efek membesar saat di-hover */
+      }
+
+      nav .nav-content p.btn {
+        margin: 0;
+      }
+
+      nav .nav-content p.btn a {
+        color: #0277bd;
+        padding: 8px 16px;
+        border-radius: 20px;
+        background-color: #b3e5fc;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s, transform 0.3s;
+      }
+
+      nav .nav-content p.btn a:hover {
+        background-color: #81d4fa;
+        color: #fff;
+        transform: scale(1.05);
+      }
+
+      nav .nav-content button {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+      }
+
+      /* Card about me start ,.blur_background  dari contact*/
+      .blur {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vw;
+        background: rgba(202, 231, 247, 0.5);
+        backdrop-filter: blur(5px); /* Efek blur */
+        z-index: 150; /* Pastikan di atas konten lain */
+      }
+      .card-me {
+        /* membinding atribute display none agar gambar gk di munat dulu saat di refres */
+        position: absolute;
+        max-width: 25%;
+        z-index: 151;
+        top: 120px;
+        right: 35vw;
+        border-top-right-radius: 10px;
+        text-align: center;
+        background-color: blanchedalmond;
+        align-items: center;
+        border: 1px solid;
+      }
+      .card-me img {
+        width: 75%;
+        object-fit: cover; /* Mengatur ukuran gambar sesuai lebar container */
+        margin: 10px 0;
+        border-radius: 5px;
+        height: auto;
+      }
+      .card-me .name {
+        color: #ffffff;
+        text-shadow: 1px 1px 1px black;
+        font-weight: bold;
+        font-family: sans-serif;
+        font-size: 1em;
+      }
+      .card-me .dsc {
+        color: #616161;
+        font-size: 0.5em;
+      }
+
+      .move-from-top {
+        top: 100px;
+      }
+      /* Card about me end */
+
+      /* Ponsel dan layar lebih kecil */
+      @media (max-width: 480px) {
+        nav {
+          padding: 5px 10px;
+        }
+
+        nav .nav-content {
+          flex-direction: column;
+          padding: 10px 0;
+          align-items: center;
+        }
+
+        nav .nav-content img {
+          height: 30px; /* Mengurangi ukuran logo */
+          margin-bottom: 10px;
+        }
+
+        nav .nav-content .nav-item {
+          flex-direction: column; /* Menumpuk item secara vertikal */
+          align-items: center;
+        }
+
+        nav .nav-content .nav-item li {
+          font-size: 0.9em;
+          margin: 5px 0; /* Memberi ruang antar item */
+        }
+
+        nav .nav-content .btn {
+          margin: 5px 0;
+          padding: 6px 12px;
+          font-size: 0.8em;
+          width: 100px; /* Ukuran tombol disesuaikan */
+        }
+
+        nav .nav-content p.btn {
+          margin: 5px 0;
+        }
+
+        nav .nav-content p.btn a {
+          padding: 6px 12px;
+          font-size: 0.8em;
+          width: 100px;
+          display: inline-block;
+          text-align: center;
+        }
+      }
+    </style>
+    <!-- Alpine js  -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body x-data="{open : false}">
+    <nav>
+      <div class="nav-content">
+        <div class="logo">
+          <img
+            src="{{ url_for('static', filename='logo/contact.jpg') }}"
+            alt=""
+            @click="open = !open"
+          />
+        </div>
+        <ul class="nav-item">
+          <li><a href="{{ url_for('todo') }}">Todo</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+        </ul>
+        <p type="submit" class="btn" title="my github">
+          <a href="https://github.com/bgdar" target="_blank">Follow</a>
+        </p>
+
+        <p type="submit" class="btn" title="back dasboard">
+          <a href="{{ url_for('dashboard')}}">Dasboard</a>
+        </p>
+      </div>
+    </nav>
+
+    <!-- Card about me  strat-->
+    <div class="blur" @click="open = !open" x-show="open">
+      <!-- Bacground bluer nya -->
+    </div>
+    <div
+      class="card-me"
+      x-show="open"
+      style="display: none"
+      :style="open ? 'display:flex;' : 'display:none;'"
+      x-transition:enter.duration.1500s="move-from-top"
+    >
+      <div class="row">
+        <img src="{{ url_for('static', filename='img/nadar.jpg') }}" alt="" />
+        <p class="name">Hy Im Muhammad Nadhar</p>
+        <p class="desc">welcome to my wesite</p>
+      </div>
+    </div>
+    <!-- Card about me  end-->
+
+    {% block content %}
+    <!-- HAlamana ini akan menjadi BAse dari halaman lainya  -->
+    <!-- Dan semua content yg berbeda akan di extent di sini jadi structurenya tetap sama  -->
+
+    {% endblock %}
+
+    <!-- file Js untuk Layou -->
+    <!-- File JS static  -->
+    <script src="{{ url_for('static',filename='js/'~fileJs)}}"></script>
+  </body>
+</html>

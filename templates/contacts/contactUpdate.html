@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Contact</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/contactUpdate.css')}}"
+    />
+  </head>
+  <body>
+    <section class="update">
+      {% with messages = get_flashed_messages(with_categories=true)%} {% for
+      category, message in messages %}
+      <div class="alert-{{ category }}">{{ message }}</div>
+      {% endfor %} {% endwith %}
+
+      <h2>Update Data Contact</h2>
+      <form action="" method="POST">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value="{{ dataID[1] }}"
+          required
+        />
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value="{{ dataID[2] }}"
+          required
+        />
+        <label for="phone">phone:</label>
+        <input
+          type="phone"
+          id="phone"
+          name="phone"
+          value="{{ dataID[3] }}"
+          required
+        />
+        <label for="age">age:</label>
+        <input
+          type="age"
+          id="age"
+          name="age"
+          value="{{ dataID[4] }}"
+          required
+        />
+        <button type="submit">Update</button>
+        <a href="">Back</a>
+      </form>
+    </section>
+  </body>
+</html>

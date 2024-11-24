@@ -1,0 +1,76 @@
+{% extends "layout.html" %} {% block content %}
+<main x-data="todoApp()">
+  <!-- jika simpan di click akan di kirimkan ke server -->
+  <button class="btn-kirim" x-show=" todos.length !== 0" @click="kirim()">
+    <span>simpan</span>
+  </button>
+  <header>
+    <h2>Welcome {{user_data[0]}}!</h2>
+  </header>
+  <section class="todo-input">
+    <form @submit.prevent="addTodo()" action="" class="form-todo">
+      <input
+        type="text"
+        placeholder="Add your to-do here"
+        class="input-todo"
+        x-model="textBaru"
+      />
+      <button type="submit" class="btn-add">Add</button>
+    </form>
+  </section>
+  <section class="todo-list">
+    <h3>To-Do List <span id="name-file">{{ user_data[1] }} </span>:</h3>
+    <div id="todo-class" class="container-todo">
+      <!-- To-Do Items inserted here -->
+      <template x-for="(todo, index) in todos" :key="index">
+        <div class="card-descripsi">
+          <input
+            type="checkbox"
+            x-on:change="centang(index)"
+            name=""
+            id="centang"
+          />
+          <p
+            x-show="!isShow || currentEditIndex !== index"
+            :class="todo.completed ? 'centang ' : 'oncentang'"
+          >
+            <span x-text="todo.text"></span>
+          </p>
+          <div class="edit-card" x-show="isShow && currentEditIndex === index">
+            <input type="text" class="input-edit" x-model="textEdit" />
+            <button class="btn-update" type="button" @click="updateTodo(index)">
+              <img
+                class="btn-img"
+                src="../../static/icons/updated.png"
+                alt=""
+              />
+            </button>
+          </div>
+          <div
+            class="card-tombol"
+            x-show="!isShow || currentEditIndex !== index"
+          >
+            <button
+              class="btn-delete"
+              @click="deleteTodo(index); todo.completed "
+            >
+              <img
+                class="btn-img"
+                src="../../static/icons/delete.png"
+                alt="delete this todo"
+              />
+            </button>
+            <button class="btn-edit" @click="editTodo(index)">
+              <img
+                class="btn-img"
+                src="../../static/icons/writing.png"
+                alt="edit your todo"
+              />
+            </button>
+          </div>
+        </div>
+      </template>
+    </div>
+  </section>
+</main>
+{% endblock %}

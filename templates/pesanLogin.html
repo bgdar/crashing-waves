@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pesan Login</title>
+  </head>
+  <style>
+    body {
+      background-color: #e0f7fa; /* Background biru muda */
+      margin: 0;
+      font-family: Arial, sans-serif; /* Font yang lebih modern */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #pesanLogin {
+      text-align: center;
+      width: 80%;
+      max-width: 400px; /* Lebar maksimum untuk responsif */
+      background-color: #ffffff; /* Background putih untuk area pesan */
+      padding: 20px;
+      border-radius: 8px; /* Sudut yang membulat */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    }
+
+    h3 {
+      background-color: #0277bd; /* Biru tua untuk header */
+      color: #ffffff; /* Teks putih */
+      padding: 10px;
+      border-radius: 4px; /* Sudut membulat untuk header */
+      margin: 0;
+    }
+
+    button.btn-submit {
+      background-color: #b3e5fc; /* Biru langit muda untuk tombol */
+      color: #0277bd; /* Teks biru tua */
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1em;
+      margin-top: 20px;
+      transition: background-color 0.3s, color 0.3s; /* Efek transisi */
+    }
+
+    button.btn-submit a {
+      color: #0277bd; /* Teks link tombol */
+      text-decoration: none; /* Menghilangkan garis bawah */
+    }
+
+    button.btn-submit:hover {
+      background-color: #81d4fa; /* Warna tombol saat hover */
+      color: #ffffff; /* Teks tombol saat hover */
+    }
+  </style>
+  <body>
+    <section id="pesanLogin">
+      <h3>Sepertinya kamu belum login</h3>
+      <button class="btn-submit" type="submit">
+        <a href="{{ url_for('dashboard') }}"
+          >Klik untuk kembali ke halaman Login</a
+        >
+      </button>
+    </section>
+  </body>
+</html>
